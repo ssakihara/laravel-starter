@@ -13,24 +13,19 @@ require('laravel-mix-polyfill')
  */
 mix.webpackConfig({
     resolve: {
-        extensions: ['.ts', '.tsx', '.json', '.scss'],
+        extensions: ['.js', '.vue', '.json', '.scss'],
         alias: {
-            '@': __dirname + '/resources/ts/src',
+            '@': __dirname + '/resources/js',
             '~': __dirname + '/resources/sass',
         },
     },
     module: {
         rules: [
             {
-                test: /\.(ts|tsx)?$/,
-                exclude: /node_modules/,
-                loader: 'ts-loader',
-            },
-            {
                 enforce: 'pre',
-                test: /\.(ts|tsx)?$/,
                 exclude: /node_modules/,
                 loader: 'eslint-loader',
+                test: /\.(js|vue)?$/,
                 options: {
                     fix: true,
                 },
@@ -38,7 +33,6 @@ mix.webpackConfig({
         ],
     },
 })
-
 mix.options({
     terser: {
         terserOptions: {
@@ -48,8 +42,7 @@ mix.options({
         },
     },
 })
-
-mix.react('resources/ts/src/app.tsx', 'public/js')
+mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .version()
     .polyfill({

@@ -8,43 +8,37 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "yarn run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "lint-ts": "yarn eslint --fix 'resources/ts/**/*.{ts,tsx}'",
+        "lint-js": "yarn eslint --fix 'resources/js/**/*.{js,vue}'",
         "lint-php": "prettier --write '**/!(*blade).php'",
         "lint-blade": "yarn js-beautify --type html --end-with-newline --replace 'resources/views/**/*.blade.php'",
         "lint-all": "yarn lint-js && yarn lint-php && yarn lint-blade"
     },
     "devDependencies": {
-        "@babel/preset-react": "^7.10.4",
-        "@material-ui/core": "^4.11.0",
-        "@material-ui/icons": "^4.9.1",
-        "@material-ui/lab": "^4.0.0-alpha.56",
+        "@fortawesome/fontawesome-free": "^5.14.0",
         "@prettier/plugin-php": "^0.14.3",
-        "@types/react": "^16.9.43",
-        "@types/react-dom": "^16.9.7",
-        "@types/react-router-dom": "^5.1.5",
-        "@typescript-eslint/eslint-plugin": "^3.7.1",
-        "@typescript-eslint/parser": "^3.7.1",
+        "@vue/eslint-config-prettier": "^6.0.0",
         "axios": "^0.19",
         "cross-env": "^7.0",
         "eslint": "^7.5.0",
         "eslint-config-prettier": "^6.11.0",
         "eslint-loader": "^4.0.0",
         "eslint-plugin-prettier": "^3.1.4",
-        "eslint-plugin-react": "^7.20.5",
+        "eslint-plugin-vue": "^6.2.2",
         "husky": "^4.2.5",
         "js-beautify": "^1.11.0",
         "laravel-mix": "^5.0.1",
         "laravel-mix-polyfill": "^2.0.0",
         "lint-staged": "^10.2.11",
         "prettier": "^2.0.5",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
-        "react-router-dom": "^5.1.2",
         "resolve-url-loader": "^3.1.1",
         "sass": "^1.26.10",
         "sass-loader": "^9.0.2",
-        "ts-loader": "^8.0.1",
-        "typescript": "^3.9.7"
+        "vue": "^2.6.11",
+        "vue-router": "^3.3.4",
+        "vue-template-compiler": "^2.6.11",
+        "vuetify": "^2.3.7",
+        "vuex": "^3.5.1",
+        "vuex-persistedstate": "^3.0.1"
     },
     "engines": {
         "npm": "Please use yarn.",
@@ -57,6 +51,6 @@
     },
     "lint-staged": {
         "!(*blade).php": "prettier --write",
-        "*.{ts,tsx}": "eslint --fix"
+        "*.{js,vue}": "eslint --fix"
     }
 }
