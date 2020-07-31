@@ -1,11 +1,10 @@
-# Laravel React Starter
+# Laravel Vue Starter
 
 ## Included
 
 -   [Laravel 6.0](https://laravel.com/docs/6.0)
 -   [Laravel-admin](https://laravel-admin.org/docs/#/)
--   [React](https://reactjs.org)
--   [TypeScript](https://www.typescriptlang.org/)
+-   [Vue](https://jp.vuejs.org/index.html)
 -   [Axios](https://github.com/mzabriskie/axios)
 -   [Authentication with JWT Token](https://github.com/tymondesigns/jwt-auth)
 -   [php-cs-fixer](https://cs.symfony.com)
