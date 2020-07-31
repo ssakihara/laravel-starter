@@ -1,0 +1,49 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: ./docker/php/Dockerfile
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+
+  web:
+    build:
+      context: ./
+      dockerfile: ./docker/nginx/Dockerfile
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    ports:
+      - 80:80
+
+  node:
+    build:
+      context: ./
+      dockerfile: ./docker/node/Dockerfile
+    working_dir: /var/www
+    tty: true
+    volumes:
+      - ./:/var/www
+
+  db:
+    build:
+      context: ./
+      dockerfile: ./docker/db/Dockerfile
+    restart: always
+    volumes:
+      - ./docker/db/dbdata:/var/lib/postgresql/data
+      - ./docker/db/tmp:/tmp
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: '${DB_DATABASE}'
+
+  pgadmin4:
+    image: dockage/phppgadmin
+    ports:
+      - 8080:80
+    environment:
+      PHP_PG_ADMIN_SERVER_HOST: db

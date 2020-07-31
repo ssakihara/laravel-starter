@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["./resources/ts/src/*"]
+        },
+        "typeRoots": ["./resources/ts/types", "node_modules/@types"],
+        "module": "commonjs",
+        "target": "esnext",
+        "jsx": "react",
+        "lib": ["dom", "esnext"],
+        "strict": true,
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "noUnusedLocals": false
+    },
+    "exclude": ["node_modules", "vendor"],
+    "include": ["./resources/ts/src/*","./resources/ts/types/*",]
+}

@@ -1,0 +1,62 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "yarn run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "yarn run development -- --watch",
+        "watch-poll": "yarn run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "yarn run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "lint-ts": "yarn eslint --fix 'resources/ts/**/*.{ts,tsx}'",
+        "lint-php": "prettier --write '**/!(*blade).php'",
+        "lint-blade": "yarn js-beautify --type html --end-with-newline --replace 'resources/views/**/*.blade.php'",
+        "lint-all": "yarn lint-js && yarn lint-php && yarn lint-blade"
+    },
+    "devDependencies": {
+        "@babel/preset-react": "^7.9.4",
+        "@material-ui/core": "^4.9.11",
+        "@material-ui/icons": "^4.9.1",
+        "@material-ui/lab": "^4.0.0-alpha.51",
+        "@prettier/plugin-php": "^0.14.2",
+        "@types/react": "^16.9.34",
+        "@types/react-dom": "^16.9.7",
+        "@types/react-router-dom": "^5.1.5",
+        "@typescript-eslint/eslint-plugin": "^2.30.0",
+        "@typescript-eslint/parser": "^2.30.0",
+        "axios": "^0.19",
+        "cross-env": "^7.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-loader": "^4.0.0",
+        "eslint-plugin-prettier": "^3.1.3",
+        "eslint-plugin-react": "^7.19.0",
+        "husky": "^4.2.5",
+        "js-beautify": "^1.11.0",
+        "laravel-mix": "^5.0.1",
+        "laravel-mix-polyfill": "^2.0.0",
+        "lint-staged": "^10.1.3",
+        "prettier": "^2.0.5",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-router-dom": "^5.1.2",
+        "resolve-url-loader": "^3.1.1",
+        "sass": "^1.20.1",
+        "sass-loader": "^8.0.0",
+        "ts-loader": "^7.0.2",
+        "typescript": "^3.8.3"
+    },
+    "engines": {
+        "npm": "Please use yarn.",
+        "node": "12.x"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "!(*blade).php": "prettier --write",
+        "*.{ts,tsx}": "eslint --fix"
+    }
+}
