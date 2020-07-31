@@ -11,7 +11,7 @@
         "lint-ts": "yarn eslint --fix 'resources/ts/**/*.{ts,tsx}'",
         "lint-php": "prettier --write '**/!(*blade).php'",
         "lint-blade": "yarn js-beautify --type html --end-with-newline --replace 'resources/views/**/*.blade.php'",
-        "lint-all": "yarn lint-js && yarn lint-php && yarn lint-blade"
+        "lint-all": "yarn lint-ts && yarn lint-php && yarn lint-blade"
     },
     "devDependencies": {
         "@babel/preset-react": "^7.10.4",
