@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Encore\Admin\Auth\Database\AdminTablesSeeder;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {

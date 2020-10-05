@@ -9,7 +9,7 @@
         "prod": "yarn run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "lint-ts": "yarn eslint --fix 'resources/ts/**/*.{ts,tsx}'",
-        "lint-php": "prettier --write '**/!(*blade).php'",
+        "lint-php": "./vendor/bin/php-cs-fixer --config=.php_cs.dist fix",
         "lint-blade": "yarn js-beautify --type html --end-with-newline --replace 'resources/views/**/*.blade.php'",
         "lint-all": "yarn lint-ts && yarn lint-php && yarn lint-blade"
     },
@@ -56,7 +56,7 @@
         }
     },
     "lint-staged": {
-        "!(*blade).php": "prettier --write",
+        "!(*blade).php": "./vendor/bin/php-cs-fixer --config=.php_cs.dist fix",
         "*.{ts,tsx}": "eslint --fix"
     }
 }

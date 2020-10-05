@@ -5,7 +5,7 @@ namespace App\Traits;
 trait UsefulTrait
 {
     /**
-     * 正規表現にマッチする定義されたものを配列として返す
+     * 正規表現にマッチする定義されたものを配列として返す.
      * @param string 正規表現
      * @return array
      */
@@ -19,6 +19,7 @@ trait UsefulTrait
                 $result[] = $value;
             }
         }
+
         return $result;
     }
 }
