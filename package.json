@@ -8,10 +8,10 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "yarn run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "lint-js": "yarn eslint --fix 'resources/js/**/*.{js,vue}'",
-        "lint-php": "prettier --write '**/!(*blade).php'",
+        "lint-ts": "yarn eslint --fix 'resources/ts/**/*.{ts,tsx}'",
+        "lint-php": "./vendor/bin/php-cs-fixer --config=.php_cs.dist fix",
         "lint-blade": "yarn js-beautify --type html --end-with-newline --replace 'resources/views/**/*.blade.php'",
-        "lint-all": "yarn lint-js && yarn lint-php && yarn lint-blade"
+        "lint-all": "yarn lint-ts && yarn lint-php && yarn lint-blade"
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.14.0",
@@ -50,7 +50,7 @@
         }
     },
     "lint-staged": {
-        "!(*blade).php": "prettier --write",
-        "*.{js,vue}": "eslint --fix"
+        "!(*blade).php": "./vendor/bin/php-cs-fixer --config=.php_cs.dist fix",
+        "*.{ts,tsx}": "eslint --fix"
     }
 }

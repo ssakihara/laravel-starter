@@ -56,7 +56,7 @@ return [
     |
     */
     'route' => [
-        'domain' => env('ADMIN_ROUTE_DOMAIN', 'admin.' . env('APP_DOMAIN', 'localhost')),
+        'domain' => env('ADMIN_ROUTE_DOMAIN', 'admin.'.env('APP_DOMAIN', 'localhost')),
 
         'prefix' => '',
 

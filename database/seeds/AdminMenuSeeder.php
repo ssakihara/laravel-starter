@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 class AdminMenuSeeder extends Seeder
 {
     const DEFAULT_ICON = 'fa-bars';
+
     /**
      * Run the database seeds.
      *
@@ -20,12 +21,12 @@ class AdminMenuSeeder extends Seeder
         $routes = Route::getRoutes();
         foreach ($routes as $route) {
             // Indexルート以外は無視する
-            if (!preg_match('/index/', $route->getName())) {
+            if (! preg_match('/index/', $route->getName())) {
                 continue;
             }
 
             // 管理画面ルート以外は無視する
-            if (!preg_match('/' . config('admin.route.domain') . '/', $route->domain())) {
+            if (! preg_match('/'.config('admin.route.domain').'/', $route->domain())) {
                 continue;
             }
 
